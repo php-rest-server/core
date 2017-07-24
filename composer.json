@@ -1,0 +1,14 @@
+{
+    "name": "php-rest-server/core",
+    "description": "Simple PHP REST server framework for online games",
+    "type": "library",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Artem Kaplenko",
+            "email": "art.kaplenko@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
