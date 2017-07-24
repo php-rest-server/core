@@ -1,0 +1,14 @@
+{
+    "name": "php-rest-server/application",
+    "description": "Simple REST server for online games",
+    "type": "project",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Artem Kaplenko",
+            "email": "art.kaplenko@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
