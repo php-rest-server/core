@@ -13,6 +13,6 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "psr-0": {"RestCore\\": "src/"}
+        "psr-4": {"RestCore\\": "/src/"}
     }
 }
