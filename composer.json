@@ -1,20 +1,20 @@
 {
-    "name": "php-rest-server/core",
-    "description": "Simple PHP REST server framework for online games",
-    "version": "0.0.1",
-    "type": "library",
-    "license": "BSD",
-    "authors": [
-        {
-            "name": "Artem Kaplenko",
-            "email": "art.kaplenko@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "psr-0": {
-          "RestCore": "src/"
-        }
+  "name": "php-rest-server/core",
+  "description": "Simple PHP REST server framework for online games",
+  "version": "0.0.1",
+  "type": "library",
+  "license": "BSD",
+  "authors": [
+    {
+      "name": "Artem Kaplenko",
+      "email": "art.kaplenko@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "RestCore\\": "src/"
+    }
+  }
 }
