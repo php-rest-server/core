@@ -1,7 +1,7 @@
 {
   "name": "php-rest-server/core",
   "description": "Simple PHP REST server framework for online games",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "library",
   "license": "BSD",
   "authors": [
