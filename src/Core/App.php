@@ -2,9 +2,9 @@
 /**
  */
 
-namespace RestCore;
+namespace RestCore\Core;
 
-class Core
+class App
 {
     public static function test()
     {
