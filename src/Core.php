@@ -2,7 +2,7 @@
 /**
  */
 
-namespace Core\Application;
+namespace RestCore\Application;
 
 class Core
 {
