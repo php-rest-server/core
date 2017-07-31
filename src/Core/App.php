@@ -26,17 +26,21 @@ class App
      */
     protected static $instance;
 
+    protected $config;
+
 
     /**
      * Get an instance of a class
      * If it does not exist, create
      *
+     * @param null $configFile
      * @return App
+     * @throws \RestCore\Exceptions\FileNotFoundException
      */
-    public static function getInstance()
+    public static function getInstance($configFile = null)
     {
         if (null === static::$instance) {
-            static::$instance = new static();
+            static::$instance = new static($configFile);
         }
         return static::$instance;
     }
@@ -49,21 +53,19 @@ class App
      * @param string $configFile
      * @throws \RestCore\Exceptions\FileNotFoundException
      */
-    private function __construct($configFile = 'config.php')
+    private function __construct($configFile)
     {
         try {
-            $config = include $configFile;
+            $this->config = include ($configFile);
         } catch (\Exception $e) {
             throw new FileNotFoundException('Configuration file is missing');
         }
-
-        var_dump($config);
     }
 
 
 
     public function start()
     {
-
+        return $this->config;
     }
 }
