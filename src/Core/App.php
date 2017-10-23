@@ -90,7 +90,6 @@ class App
             die;
         }
 
-        header('content-type: application/json');
         echo $result;
     }
 }

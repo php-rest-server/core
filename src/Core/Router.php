@@ -165,12 +165,17 @@ class Router
 
     /**
      * Encoding and cypher result
-     * @param array $data
+     * @param array|string $data
      * @return string
      */
-    protected function getResult(array $data)
+    protected function getResult($data)
     {
-        return $this->cypher->encode(json_encode($data));
+        if (is_array($data)) {
+            header('content-type: application/json');
+            return $this->cypher->encode(json_encode($data));
+        }
+
+        return $data;
     }
 
 
@@ -270,7 +275,7 @@ class Router
      * @param string $action
      * @param ActionAttribute[] $arguments
      * @param array $data
-     * @return array
+     * @return array|string
      * @throws \ReflectionException
      */
     protected function callAction(ControllerInterface $class, $action, $arguments, array $data)
