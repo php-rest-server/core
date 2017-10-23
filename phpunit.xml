@@ -3,5 +3,12 @@
         <testsuite name="Param bag test">
             <file>tests/ParamTest.php</file>
         </testsuite>
+        <testsuite name="Router test">
+            <file>tests/Cyphers/SimpleCypherTest.php</file>
+            <file>tests/Cyphers/Base64CypherTest.php</file>
+            <file>tests/Cyphers/OpenSSLCypherTest.php</file>
+            <file>tests/ActionInfoTest.php</file>
+            <file>tests/RouterTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>

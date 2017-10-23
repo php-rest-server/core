@@ -8,8 +8,18 @@
 
 namespace RestCore\Core;
 
-class Controller
+use RestCore\Core\General\ActionInfo;
+use RestCore\Core\Interfaces\ControllerInterface;
+
+abstract class Controller implements ControllerInterface
 {
+    /**
+     * @return ActionInfo[]
+     */
+    public function getMethods()
+    {
+        return [];
+    }
 
     public function __construct()
     {

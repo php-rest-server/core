@@ -10,9 +10,9 @@ namespace RestCore\Exceptions;
 
 use Throwable;
 
-class FileNotFoundException extends \Exception
+class ActionNotFoundException extends \Exception
 {
-    public function __construct($message = 'File not found', $code = 500, Throwable $previous = null)
+    public function __construct($message = 'Action not found', $code = 404, Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

@@ -12,6 +12,7 @@
 namespace RestCore\Core;
 
 use RestCore\Core\General\Param;
+use RestCore\Core\Helpers\ExceptionHelper;
 use RestCore\Exceptions\FileNotFoundException;
 
 /**
@@ -26,7 +27,17 @@ class App
      */
     protected static $instance;
 
+    /**
+     * Config storage
+     * @var array
+     */
     protected $config;
+
+    /**
+     * Router link
+     * @var Router
+     */
+    protected $router;
 
 
     /**
@@ -55,17 +66,31 @@ class App
      */
     private function __construct($configFile)
     {
-        try {
-            $this->config = include ($configFile);
-        } catch (\Exception $e) {
-            throw new FileNotFoundException('Configuration file is missing');
+        $this->config = @include ($configFile);
+        if (false === $this->config) {
+            ExceptionHelper::showError(new FileNotFoundException('Configuration file is missing'));
+            die;
         }
+
+        $this->router = new Router();
     }
 
 
-
+    /**
+     *
+     */
     public function start()
     {
-        return $this->config;
+        $config = new Param($this->config);
+
+        try {
+            $result = $this->router->route($config->get('router', []));
+        } catch (\Exception $e) {
+            ExceptionHelper::showError($e);
+            die;
+        }
+
+        header('content-type: application/json');
+        echo $result;
     }
 }
