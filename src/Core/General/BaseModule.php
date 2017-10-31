@@ -15,11 +15,11 @@ abstract class BaseModule
 
     public static function setConfig($config)
     {
-        static::$config = $config;
+        self::$config = $config;
     }
 
     public static function getConfig()
     {
-        return static::$config;
+        return self::$config;
     }
 }
