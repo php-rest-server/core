@@ -88,7 +88,7 @@ class App
 
         foreach ($modules as $module) {
             if (is_subclass_of($module['class'], BaseModule::class)) {
-                $module::setConfig($module);
+                $module['class']::setConfig($module);
             }
         }
 
