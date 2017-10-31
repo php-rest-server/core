@@ -87,7 +87,7 @@ class App
         $modules = $config->get('modules', []);
 
         foreach ($modules as $module) {
-            if ($module instanceof BaseModule) {
+            if (is_subclass_of($module['class'], BaseModule::class)) {
                 $module::setConfig($module);
             }
         }
