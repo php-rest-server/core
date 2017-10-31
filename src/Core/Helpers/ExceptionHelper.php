@@ -16,6 +16,7 @@ class ExceptionHelper
     public static function showError(\Exception $e)
     {
         http_response_code($e->getCode());
+        header('content-type: application/json');
         echo json_encode(['error' => true, 'code' => $e->getCode(), 'message' => $e->getMessage()]);
     }
 }
