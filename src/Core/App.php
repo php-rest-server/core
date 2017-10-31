@@ -11,6 +11,7 @@
 
 namespace RestCore\Core;
 
+use RestCore\Core\General\BaseModule;
 use RestCore\Core\General\Param;
 use RestCore\Core\Helpers\ExceptionHelper;
 use RestCore\Exceptions\FileNotFoundException;
@@ -77,11 +78,19 @@ class App
 
 
     /**
-     *
+     * Start application
      */
     public function start()
     {
         $config = new Param($this->config);
+
+        $modules = $config->get('modules', []);
+
+        foreach ($modules as $module) {
+            if ($module instanceof BaseModule) {
+                $module::setConfig($module);
+            }
+        }
 
         try {
             $result = $this->router->route($config->get('router', []));
