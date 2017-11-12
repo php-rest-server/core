@@ -218,6 +218,7 @@ class Router
             case HttpMethods::PATCH:
                 $data = $this->cypher->decode(file_get_contents('php://input'));
                 parse_str($data, $patchData);
+                $patchData = array_merge($_GET, $patchData);
                 return $patchData ?: [];
                 break;
 
