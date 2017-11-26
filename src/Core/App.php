@@ -15,6 +15,7 @@ use RestCore\Core\General\BaseModule;
 use RestCore\Core\General\Param;
 use RestCore\Core\Helpers\ExceptionHelper;
 use RestCore\Exceptions\FileNotFoundException;
+use RestCore\Exceptions\ModuleNotFoundException;
 
 /**
  * Class App
@@ -106,5 +107,22 @@ class App
         }
 
         echo $result;
+    }
+
+
+    /**
+     * Return connected module
+     *
+     * @param string $name module name
+     * @return BaseModule
+     * @throws ModuleNotFoundException
+     */
+    public function getModule($name)
+    {
+        if (!isset($this->modules[$name])) {
+            throw new ModuleNotFoundException();
+        }
+
+        return $this->modules[$name];
     }
 }
