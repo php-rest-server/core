@@ -40,6 +40,12 @@ class App
      */
     protected $router;
 
+    /**
+     * Modules storage
+     * @var BaseModule[]
+     */
+    protected $modules = [];
+
 
     /**
      * Get an instance of a class
@@ -86,9 +92,9 @@ class App
 
         $modules = $config->get('modules', []);
 
-        foreach ($modules as $module) {
+        foreach ($modules as $name => $module) {
             if (is_subclass_of($module['class'], BaseModule::class)) {
-                $module['class']::setConfig($module);
+                $this->modules[$name] = new $module['class']($module);
             }
         }
 

@@ -11,15 +11,20 @@ namespace RestCore\Core\General;
  */
 abstract class BaseModule
 {
-    protected static $config;
+    protected $config;
 
-    public static function setConfig($config)
+    public function __construct($config = [])
     {
-        static::$config = $config;
+        $this->setConfig($config);
     }
 
-    public static function getConfig()
+    public function setConfig($config)
     {
-        return static::$config;
+        $this->config = $config;
+    }
+
+    public function getConfig()
+    {
+        return $this->config;
     }
 }
