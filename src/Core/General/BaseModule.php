@@ -11,7 +11,7 @@ namespace RestCore\Core\General;
  */
 abstract class BaseModule
 {
-    private static $config;
+    protected static $config;
 
     public static function setConfig($config)
     {
