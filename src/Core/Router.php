@@ -212,6 +212,9 @@ class Router
         switch ($method) {
             // POST method
             case HttpMethods::POST:
+                $postData = array_merge($_GET, $_POST);
+                return $postData ?: [];
+                break;
             // PUT method
             case HttpMethods::PUT:
             // PATH method
